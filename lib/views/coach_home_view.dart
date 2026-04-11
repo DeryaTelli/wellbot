@@ -3,6 +3,7 @@ import 'package:wellbot/utils/constants/app_colors.dart';
 import 'package:wellbot/utils/widgets/home_widgets/coaches_grid.dart';
 import 'package:wellbot/utils/widgets/navbar/bottom_nav_bar.dart';
 import 'package:wellbot/viewmodels/coach_home_viewmodel.dart';
+import 'package:wellbot/views/chat_history_view.dart';
 
 class CoachesHomePage extends StatefulWidget {
   const CoachesHomePage({super.key});
@@ -37,8 +38,15 @@ class _CoachesHomePageState extends State<CoachesHomePage> {
     return Scaffold(
       appBar: AppBar(title: const Text('Wellbot Coaches')),
       bottomNavigationBar: CustomBottomNavBar(
-        currentIndex: viewModel.selectedBottomIndex,
-        onTap: viewModel.changeBottomTab,
+        currentIndex: 0,
+        onTap: (index) {
+          if (index == 1) {
+            Navigator.pushReplacement(
+              context,
+              MaterialPageRoute(builder: (_) => const ChatHistoryPage()),
+            );
+          }
+        },
       ),
       body: SafeArea(
         child: Padding(

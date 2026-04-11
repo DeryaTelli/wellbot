@@ -23,7 +23,7 @@ class _ChatScreenState extends State<ChatScreen> {
   @override
   void initState() {
     super.initState();
-    viewModel = ChatViewModel();
+    viewModel = ChatViewModel(coach: widget.coach);
     viewModel.addListener(_refresh);
   }
 
@@ -60,7 +60,6 @@ class _ChatScreenState extends State<ChatScreen> {
                   child: ChatMessageList(
                     messages: viewModel.messages,
                     scrollController: viewModel.scrollController,
-                    onQuickActionTap: viewModel.onQuickActionTap,
                   ),
                 ),
                 ChatInputBar(
