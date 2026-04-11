@@ -1,9 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:wellbot/core/widgets/home_widgets/coaches_grid.dart';
-import 'package:wellbot/core/widgets/navbar/bottom_nav_bar.dart';
+import 'package:wellbot/utils/constants/app_colors.dart';
+import 'package:wellbot/utils/widgets/home_widgets/coaches_grid.dart';
+import 'package:wellbot/utils/widgets/navbar/bottom_nav_bar.dart';
 import 'package:wellbot/viewmodels/coach_home_viewmodel.dart';
-import '../../../core/theme/app_colors.dart';
-
 
 class CoachesHomePage extends StatefulWidget {
   const CoachesHomePage({super.key});
@@ -36,7 +35,7 @@ class _CoachesHomePageState extends State<CoachesHomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: AppColors.background,
+      appBar: AppBar(title: const Text('Wellbot Coaches')),
       bottomNavigationBar: CustomBottomNavBar(
         currentIndex: viewModel.selectedBottomIndex,
         onTap: viewModel.changeBottomTab,
@@ -47,15 +46,6 @@ class _CoachesHomePageState extends State<CoachesHomePage> {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              const SizedBox(height: 8),
-              const Text(
-                'WellnessAI - Choose Your Expert',
-                style: TextStyle(
-                  fontSize: 20,
-                  fontWeight: FontWeight.w700,
-                  color: AppColors.textPrimary,
-                ),
-              ),
               const SizedBox(height: 20),
               Expanded(
                 child: SingleChildScrollView(

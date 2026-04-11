@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:wellbot/models/coaches_category_model.dart';
 
-
 class CoachesHomeViewModel extends ChangeNotifier {
   int _selectedBottomIndex = 0;
 
@@ -9,20 +8,24 @@ class CoachesHomeViewModel extends ChangeNotifier {
 
   final List<CoachCategoryModel> _categories = const [
     CoachCategoryModel(
+      id: 'dietitian',
       title: 'Dietitian',
-      imageAsset: 'assets/icons/dietitian.png',
+      lottieAsset: 'assets/lottie/diet.json',
     ),
     CoachCategoryModel(
+      id: 'fitness',
       title: 'Fitness Coach',
-      imageAsset: 'assets/icons/fitness.png',
+      lottieAsset: 'assets/lottie/fitness.json',
     ),
     CoachCategoryModel(
+      id: 'yoga',
       title: 'Yoga Instructor',
-      imageAsset: 'assets/icons/yoga.png',
+      lottieAsset: 'assets/lottie/yoga.json',
     ),
     CoachCategoryModel(
+      id: 'pilates',
       title: 'Pilates Coach',
-      imageAsset: 'assets/icons/pilates.png',
+      lottieAsset: 'assets/lottie/pilates.json',
     ),
   ];
 
@@ -31,9 +34,5 @@ class CoachesHomeViewModel extends ChangeNotifier {
   void changeBottomTab(int index) {
     _selectedBottomIndex = index;
     notifyListeners();
-  }
-
-  void onCategoryTap(CoachCategoryModel category) {
-    debugPrint('${category.title} seçildi');
   }
 }

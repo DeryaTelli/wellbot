@@ -1,14 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:wellbot/viewmodels/coach_home_viewmodel.dart';
+import 'package:wellbot/views/chat_view.dart';
 import 'coach_category_card.dart';
 
 class CoachesGrid extends StatelessWidget {
   final CoachesHomeViewModel viewModel;
 
-  const CoachesGrid({
-    super.key,
-    required this.viewModel,
-  });
+  const CoachesGrid({super.key, required this.viewModel});
 
   @override
   Widget build(BuildContext context) {
@@ -27,7 +25,14 @@ class CoachesGrid extends StatelessWidget {
 
         return CoachCategoryCard(
           category: category,
-          onTap: () => viewModel.onCategoryTap(category),
+          onTap: () {
+            Navigator.push(
+              context,
+              MaterialPageRoute(
+                builder: (_) => ChatScreen(coach: category),
+              ),
+            );
+          },
         );
       },
     );
