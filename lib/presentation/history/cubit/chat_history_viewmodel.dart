@@ -11,16 +11,10 @@ class ChatHistoryState {
   final bool isLoading;
   final List<ChatHistoryItemModel> historyItems;
 
-  const ChatHistoryState({
-    required this.isLoading,
-    required this.historyItems,
-  });
+  const ChatHistoryState({required this.isLoading, required this.historyItems});
 
   factory ChatHistoryState.initial() {
-    return const ChatHistoryState(
-      isLoading: false,
-      historyItems: [],
-    );
+    return const ChatHistoryState(isLoading: false, historyItems: []);
   }
 
   ChatHistoryState copyWith({
@@ -38,7 +32,7 @@ class ChatHistoryCubit extends Cubit<ChatHistoryState> {
   final ChatRepository repository;
 
   ChatHistoryCubit({required this.repository})
-      : super(ChatHistoryState.initial());
+    : super(ChatHistoryState.initial());
 
   Future<void> init() async {
     await loadHistory();
@@ -47,16 +41,14 @@ class ChatHistoryCubit extends Cubit<ChatHistoryState> {
   Future<void> loadHistory() async {
     emit(state.copyWith(isLoading: true));
 
-    final items = await repository.getHistoryItems(
-      CoachRepository.coachMap(),
-    );
+    final items = await repository.getHistoryItems(CoachRepository.coachMap());
 
-    emit(
-      state.copyWith(
-        isLoading: false,
-        historyItems: items,
-      ),
-    );
+    emit(state.copyWith(isLoading: false, historyItems: items));
+  }
+
+  Future<void> deleteConversation(String conversationId) async {
+    await repository.deleteConversation(conversationId);
+    await loadHistory();
   }
 
   CoachCategoryModel coachFromHistoryItem(ChatHistoryItemModel item) {

@@ -57,4 +57,8 @@ class ChatRepository {
       userMessage: userMessage,
     );
   }
+
+  Future<void> deleteConversation(String conversationId) {
+    return localDataSource.deleteConversation(conversationId);
+  }
 }

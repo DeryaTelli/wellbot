@@ -58,7 +58,7 @@ class ChatScreen extends StatelessWidget {
                       if (state.isLoading)
                         const Padding(
                           padding: EdgeInsets.only(bottom: 8),
-                          child: Text('Yazıyor...'),
+                          child: Text('Writing...'),
                         ),
                       ChatInputBar(
                         controller: cubit.messageController,

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:wellbot/core/utils/constants/app_colors.dart';
+import 'package:wellbot/core/utils/theme/custom_text_style.dart';
 
 class CustomBottomNavBar extends StatelessWidget {
   final int currentIndex;
@@ -19,9 +20,11 @@ class CustomBottomNavBar extends StatelessWidget {
       backgroundColor: Colors.white,
       selectedItemColor: AppColors.primaryColor,
       unselectedItemColor: AppColors.hintTextColor,
+      selectedLabelStyle: CustomTextStyles.bold14Primary,
+      unselectedLabelStyle: CustomTextStyles.regular14Grey,
       type: BottomNavigationBarType.fixed,
       items: const [
-        BottomNavigationBarItem(icon: Icon(Icons.home), label: 'Coaches' ),
+        BottomNavigationBarItem(icon: Icon(Icons.home), label: 'Coaches'),
         BottomNavigationBarItem(icon: Icon(Icons.history), label: 'History'),
       ],
     );

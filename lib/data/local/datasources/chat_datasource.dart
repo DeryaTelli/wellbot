@@ -5,17 +5,14 @@ import 'package:wellbot/data/models/coaches_category_model.dart';
 
 class ChatLocalDataSource {
   Future<void> insertMessage(ChatMessageModel message) async {
-    await AppDatabase.instance.database.insert(
-      'chat_messages',
-      {
-        'id': message.id,
-        'conversation_id': message.conversationId,
-        'coach_id': message.coachId,
-        'text': message.text,
-        'sender': message.sender.name,
-        'created_at': message.createdAt.toIso8601String(),
-      },
-    );
+    await AppDatabase.instance.database.insert('chat_messages', {
+      'id': message.id,
+      'conversation_id': message.conversationId,
+      'coach_id': message.coachId,
+      'text': message.text,
+      'sender': message.sender.name,
+      'created_at': message.createdAt.toLocal().toIso8601String(),
+    });
   }
 
   Future<List<ChatMessageModel>> getMessagesByConversation(
@@ -37,7 +34,7 @@ class ChatLocalDataSource {
         sender: (e['sender'] as String) == 'user'
             ? SenderType.user
             : SenderType.bot,
-        createdAt: DateTime.parse(e['created_at'] as String),
+        createdAt: DateTime.parse(e['created_at'] as String).toLocal(),
       );
     }).toList();
   }
@@ -72,8 +69,16 @@ class ChatLocalDataSource {
         coachTitle: coach.title,
         coachImageAsset: coach.imageAsset,
         lastMessage: e['text'] as String,
-        lastMessageTime: DateTime.parse(e['created_at'] as String),
+        lastMessageTime: DateTime.parse(e['created_at'] as String).toLocal(),
       );
     }).toList();
+  }
+
+  Future<void> deleteConversation(String conversationId) async {
+    await AppDatabase.instance.database.delete(
+      'chat_messages',
+      where: 'conversation_id = ?',
+      whereArgs: [conversationId],
+    );
   }
 }

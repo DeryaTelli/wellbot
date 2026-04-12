@@ -9,6 +9,7 @@ import 'package:wellbot/core/utils/widgets/navbar/bottom_nav_bar.dart';
 import 'package:wellbot/presentation/history/cubit/chat_history_viewmodel.dart';
 import 'package:wellbot/presentation/chat/views/chat_view.dart';
 import 'package:wellbot/presentation/coaches/views/coach_home_view.dart';
+import 'package:wellbot/presentation/history/widgets/dismissible_history.dart';
 
 class ChatHistoryPage extends StatelessWidget {
   const ChatHistoryPage({super.key});
@@ -44,36 +45,15 @@ class ChatHistoryPage extends StatelessWidget {
                 if (state.isLoading) {
                   return const Center(child: CircularProgressIndicator());
                 }
-
                 if (state.historyItems.isEmpty) {
                   return const Center(child: Text('Henüz konuşma yok'));
                 }
-
                 return ListView.separated(
                   itemCount: state.historyItems.length,
                   separatorBuilder: (_, __) => const SizedBox(height: 12),
                   itemBuilder: (context, index) {
                     final item = state.historyItems[index];
-                    final cubit = context.read<ChatHistoryCubit>();
-
-                    return ChatHistoryListItem(
-                      item: item,
-                      onTap: () {
-                        final coach = cubit.coachFromHistoryItem(item);
-
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                            builder: (_) => ChatScreen(
-                              coach: coach,
-                              conversationId: item.conversationId,
-                            ),
-                          ),
-                        ).then((_) {
-                          cubit.loadHistory();
-                        });
-                      },
-                    );
+                    return DismissibleHistoryItem(item: item);
                   },
                 );
               },

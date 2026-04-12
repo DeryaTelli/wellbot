@@ -3,6 +3,7 @@
   class AppColors {
     AppColors._();
     static const Color primaryColor = Color(0xFFFE8800);
+    static const Color red = Color(0xFFF7AF5B);
     static const Color hintTextColor = Color(0xFF838383);
     static const Color primaryTextColor = Color(0xFF1B1B1B);
     static const LinearGradient primaryGradient = LinearGradient(

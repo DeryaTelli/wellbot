@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:intl/intl.dart';
 import 'package:wellbot/data/models/chat_history_model.dart';
 import 'package:wellbot/core/utils/constants/app_colors.dart';
 import 'package:wellbot/core/utils/theme/custom_text_style.dart';
@@ -14,14 +15,12 @@ class ChatHistoryListItem extends StatelessWidget {
   });
 
   String _formatTime(DateTime dateTime) {
+    final localDateTime = dateTime.toLocal();
     final now = DateTime.now();
-    final difference = now.difference(dateTime);
+    final difference = now.difference(localDateTime);
 
     if (difference.inDays == 0) {
-      final hour = dateTime.hour > 12 ? dateTime.hour - 12 : dateTime.hour;
-      final minute = dateTime.minute.toString().padLeft(2, '0');
-      final suffix = dateTime.hour >= 12 ? 'PM' : 'AM';
-      return '${hour == 0 ? 12 : hour}:$minute $suffix';
+      return DateFormat('h:mm a').format(localDateTime);
     } else if (difference.inDays == 1) {
       return 'Yesterday';
     } else {
