@@ -46,7 +46,7 @@ class ChatHistoryPage extends StatelessWidget {
                   return const Center(child: CircularProgressIndicator());
                 }
                 if (state.historyItems.isEmpty) {
-                  return const Center(child: Text('Henüz konuşma yok'));
+                  return const Center(child: Text('No chat history found.'));
                 }
                 return ListView.separated(
                   itemCount: state.historyItems.length,

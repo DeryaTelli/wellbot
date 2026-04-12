@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:wellbot/core/utils/constants/app_colors.dart';
 import 'package:wellbot/data/models/chat_message_model.dart';
 import 'package:wellbot/core/utils/theme/custom_text_style.dart';
 
@@ -26,14 +27,14 @@ class BotMessageBubble extends StatelessWidget {
             child: Container(
               constraints: const BoxConstraints(maxWidth: 240),
               decoration: BoxDecoration(
-                color: const Color(0xFFF1A325),
+                gradient: AppColors.backgroundGradient,
                 borderRadius: BorderRadius.circular(16),
               ),
               child: Padding(
                 padding: const EdgeInsets.fromLTRB(14, 12, 14, 12),
                 child: Text(
                   message.text,
-                  style: CustomTextStyles.regular14Black,
+                  style: CustomTextStyles.regular15Black,
                 ),
               ),
             ),
