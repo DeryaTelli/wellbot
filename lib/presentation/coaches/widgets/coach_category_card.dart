@@ -27,7 +27,7 @@ class CoachCategoryCard extends StatelessWidget {
         padding: const EdgeInsets.all(2),
         child: Container(
           decoration: BoxDecoration(
-            color: Colors.white,
+            color: const Color(0xFFF5F5F5),
             borderRadius: BorderRadius.circular(12),
           ),
           padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 14),

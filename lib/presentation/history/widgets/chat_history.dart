@@ -41,7 +41,7 @@ class ChatHistoryListItem extends StatelessWidget {
         padding: const EdgeInsets.all(1.4),
         child: Container(
           decoration: BoxDecoration(
-            color: Colors.white,
+            color: AppColors.background,
             borderRadius: BorderRadius.circular(17),
           ),
           padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 14),
@@ -51,7 +51,7 @@ class ChatHistoryListItem extends StatelessWidget {
                 width: 52,
                 height: 52,
                 decoration: BoxDecoration(
-                  color: const Color(0xFFF8F8F8),
+                  color: AppColors.background,
                   borderRadius: BorderRadius.circular(26),
                 ),
                 child: ClipRRect(

@@ -30,9 +30,8 @@ class ChatScreen extends StatelessWidget {
         ),
       )..init(),
       child: Scaffold(
-        backgroundColor: Colors.white,
         appBar: AppBar(
-          leading: const BackButton(color: Colors.white),
+          leading: const BackButton(color: AppColors.background),
           title: Text(coach.title),
         ),
         body: SafeArea(

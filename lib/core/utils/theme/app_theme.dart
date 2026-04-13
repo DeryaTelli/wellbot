@@ -3,14 +3,13 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:wellbot/core/utils/constants/app_colors.dart';
 import 'package:wellbot/core/utils/theme/custom_text_style.dart';
 
-
 class AppTheme {
   AppTheme._();
 
   static ThemeData get lightTheme {
     return ThemeData(
       useMaterial3: true,
-      scaffoldBackgroundColor: Colors.white,
+      scaffoldBackgroundColor: AppColors.background,
 
       colorScheme: ColorScheme.fromSeed(
         seedColor: AppColors.primaryColor,

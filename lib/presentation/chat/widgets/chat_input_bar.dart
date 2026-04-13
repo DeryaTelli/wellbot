@@ -21,7 +21,7 @@ class ChatInputBar extends StatelessWidget {
             child: Container(
               height: 46,
               decoration: BoxDecoration(
-                color: Colors.white,
+                color: AppColors.background,
                 border: Border.all(color: AppColors.primaryColor),
                 borderRadius: BorderRadius.circular(16),
               ),
