@@ -5,11 +5,20 @@ Wellbot is a Flutter-based AI-powered coaching application that provides persona
 ---
 
 ## App Preview
+<div style="display: flex; flex-wrap: wrap; gap: 12px; justify-content: center;">
 
+  <img src="assets/readme/screen1.png" height="400"/>
+  <img src="assets/readme/screen2.png" height="400"/>
+  <img src="assets/readme/screen3.png" height="400"/>
+  <img src="assets/readme/screen4.png" height="400"/>
+  <img src="assets/readme/screen5.png" height="400"/>
+  <img src="assets/readme/screen6.png" height="400"/>
+  <img src="assets/readme/screen7.png" height="400"/>
+  <img src="assets/readme/screen8.png" height="400"/>
+  <img src="assets/readme/screen9.png" height="400"/>
 
-![Home Screen](https://canva.link/xwb2wf0lw5y2g8s)
+</div>
 
----
 
 ## Features
 
